@@ -20,7 +20,7 @@ extension_services:
         schemaVersion: 1.0.0
         class: Device
         async: true
-        label: Failover 3NIC BIG-IP declaration for Declarative Onboarding with PAYG
+        label: Failover 3NIC BIG-IP declaration for Declarative Onboarding with BYOL
           license
         Common:
           class: Tenant
@@ -47,6 +47,10 @@ extension_services:
             autoPhonehome: true
             class: System
             hostname: '{{{HOST_NAME}}}'
+          My_License:
+            class: License
+            licenseType: regKey
+            regKey: '{{{LICENSE_KEY}}}'
           admin:
             class: User
             userType: regular
@@ -189,7 +193,7 @@ extension_services:
         schemaVersion: 1.0.0
         class: Device
         async: true
-        label: Failover 3NIC BIG-IP declaration for Declarative Onboarding with PAYG
+        label: Failover 3NIC BIG-IP declaration for Declarative Onboarding with BYOL
           license
         Common:
           class: Tenant
@@ -313,6 +317,9 @@ runtime_parameters:
   - name: SECRET_ID
     type: url
     value: file:///config/cloud/secret_id
+  - name: LICENSE_KEY
+    type: url
+    value: file:///config/cloud/license_key
   - name: BIGIP_PASSWORD
     type: static
     value: Thisismypassword123
